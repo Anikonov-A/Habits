@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Comfortaa", cursive;
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+  background-color: #f3f6fd;
+}
+.app {
+  display: flex;
+  gap: 6%;
+}
+.panel {
+  background-color: #fff;
+  padding: 30px;
+  min-height: 100svh;
+}
+.logo {
+  margin-bottom: 50px;
+}
+
+.menu__list,
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+.menu__item,
+.menu__add {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0px 8px 14px 0px rgba(62, 107, 224, 0.12);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+.menu__item:hover {
+  background-color: #6a6afb;
+}
+.menu__item:hover img,
+.menu__item_active img {
+  filter: brightness(0) invert(1);
+}
+.menu__item_active {
+  background-color: #5051f9;
+}
+
+.menu__add {
+  border: 1px solid #cad5ff;
+}
+.menu__add:hover {
+  background: #eff2ff;
+}
+.content {
+  width: 100%;
+  padding: 15px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  font-size: 30px;
+  line-height: 33px;
+  color: #000;
+}
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.progress__text {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+}
+.progress__name {
+  color: #232360;
+}
+.progress__percent {
+  font-size: 12px;
+  line-height: 13px;
+  color: #768396;
+}
+.progress__bar {
+  width: 100%;
+  background: #e6e9ed;
+  border-radius: 4px;
+  height: 5px;
+  position: relative;
+}
+.progress__cover-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 5px;
+  background-color: #5051f9;
+  border-radius: 4px;
+}
+.main {
+  padding-top: 30px;
+}
+.main__wrapper {
+}
+.habbit {
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.habbit__day {
+  background: #fbfaff;
+  border-radius: 10px 0 0 10px;
+  border-right: 1px solid #e7ebfb;
+  padding: 20px 25px;
+  min-width: 5%;
+  flex-shrink: 0;
+}
+.habbit__comment {
+  padding: 20px 25px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 600;
+}
+.habbit__delete {
+  margin-left: auto;
+  margin-right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease 0s;
+  padding: 2px;
+}
+.habbit__delete:hover {
+  background: #e7ebfb;
+}
+.habbit__form {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  padding: 0 25px;
+}
+.input-icon {
+  background: #fff;
+  border: 1px solid #e7ebfb;
+  border-radius: 9px;
+  padding: 12px 20px;
+  font-family: "Comfortaa", cursive;
+  width: 100%;
+}
+.add-comment {
+  margin-left: auto;
+  border-radius: 9px;
+  background: #edecfe;
+  color: #5051f9;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease 0s;
+  padding: 14px 32px;
+}
+.add-comment:hover {
+}
