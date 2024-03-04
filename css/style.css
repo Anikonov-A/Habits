@@ -40,17 +40,17 @@ body {
   box-shadow: 0px 8px 14px 0px rgba(62, 107, 224, 0.12);
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease 0s;
+  transition: background 0.3s ease 0s;
 }
 .menu__item:hover {
-  background-color: #6a6afb;
+  background: #6a6afb;
 }
 .menu__item:hover img,
 .menu__item_active img {
   filter: brightness(0) invert(1);
 }
 .menu__item_active {
-  background-color: #5051f9;
+  background: #5051f9;
 }
 
 .menu__add {
