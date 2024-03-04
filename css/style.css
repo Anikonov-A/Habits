@@ -110,16 +110,16 @@ body {
 .main {
   padding-top: 30px;
 }
-.main__wrapper {
-}
-.habbit {
+/* .main__wrapper {
+} */
+.habit {
   background: #fff;
   border-radius: 10px;
   display: flex;
   align-items: center;
   margin-bottom: 12px;
 }
-.habbit__day {
+.habit__day {
   background: #fbfaff;
   border-radius: 10px 0 0 10px;
   border-right: 1px solid #e7ebfb;
@@ -127,14 +127,15 @@ body {
   min-width: 5%;
   flex-shrink: 0;
   align-self: stretch;
+  text-align: center;
 }
-.habbit__comment {
+.habit__comment {
   padding: 20px 25px;
   font-size: 16px;
   line-height: 18px;
   font-weight: 600;
 }
-.habbit__delete {
+.habit__delete {
   margin-left: auto;
   margin-right: 10px;
   background: none;
@@ -144,10 +145,10 @@ body {
   transition: background 0.3s ease 0s;
   padding: 2px;
 }
-.habbit__delete:hover {
+.habit__delete:hover {
   background: #e7ebfb;
 }
-.habbit__form {
+.habit__form {
   display: flex;
   gap: 15px;
   width: 100%;
@@ -192,23 +193,29 @@ body {
     gap: 2%;
     /* flex-direction: column-reverse; */
   }
-  .logo {
-    /* margin-bottom: 0; */
+  /* .logo {
+    margin-bottom: 0;
+  } */
+  /* .habbit {
+    flex-direction: column;
   }
-  .panel {
+  .habbit__form {
+    flex-direction: column;
+  } */
+  /* .panel {
     display: none;
-    /* min-height: 100px;
+    min-height: 100px;
     display: flex;
     justify-content: space-between;
-    align-items: center; */
-  }
+    align-items: center;
+  } */
   .progress {
     min-width: 130px;
   }
   .main {
     padding-top: 15px;
   }
-  .menu {
+  /* .menu {
     flex-wrap: wrap;
 
     flex-direction: row;
@@ -217,5 +224,5 @@ body {
     flex-wrap: wrap;
 
     flex-direction: row;
-  }
+  } */
 }

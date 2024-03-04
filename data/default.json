@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "icon": "sport",
+    "name": "Push-ups",
+    "target": 10,
+    "days": [
+      { "comment": "The first approach is always hard" },
+      { "comment": "Day two is easier" }
+    ]
+  },
+  {
+    "id": 2,
+    "icon": "food",
+    "name": "Healthy food",
+    "target": 10,
+    "days": [
+		{ "comment": "Cool!" }
+	]
+  }
+]
