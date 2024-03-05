@@ -23,7 +23,7 @@
 		</div>
 		<div class="content">
 			<header class="header">
-				<h1 class="title">-</h1>
+				<h1 class="title">Add new habit</h1>
 				<div class="progress">
 					<div class="progress__text">
 						<div class="progress__name">Progress</div>
@@ -38,7 +38,7 @@
 				<div class="main__wrapper"></div>
 				<div class="habit">
 					<div class="habit__day">
-						Day _
+						Day
 					</div>
 					<form class="habit__form" onsubmit="addDays(event)">
 						<input type="text" name="comment" placeholder="Comment" class="input">
@@ -58,18 +58,19 @@
 			<h2 class="subtitle">New habit</h2>
 			<div class="icon-label">Icons</div>
 			<div class="icon-select">
-				<button class="icon icon--active">
+				<button class="icon icon--active" onclick="setIcon(this,'sport')">
 					<img src="./img/sport.svg" alt="sport">
 				</button>
-				<button class="icon ">
+				<button class="icon" onclick="setIcon(this,'water')">
 					<img src="./img/water.svg" alt="water">
 				</button>
-				<button class="icon ">
+				<button class="icon" onclick="setIcon(this,'food')">
 					<img src="./img/food.svg" alt="food">
 				</button>
 			</div>
-			<form class="popup__form">
+			<form class="popup__form" onsubmit="addHabit(event)">
 				<input type="text" name="name" placeholder="Name">
+				<input type="text" name="icon" hidden placeholder="Icon" value="sport">
 				<input type="number" name="target" placeholder="Target (number)">
 				<button class="button" type="submit">Submit</button>
 			</form>

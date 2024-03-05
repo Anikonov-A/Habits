@@ -39,6 +39,35 @@ function togglePopup() {
     page.popup.index.classList.add("cover--hidden");
   }
 }
+function resetForm(form, fields) {
+  for (const field of fields) {
+    form[field].value = "";
+  }
+}
+
+function validateForm(form, fields) {
+  const formData = new FormData(form);
+  const res = {};
+  for (const field of fields) {
+    const fieldValue = formData.get(field);
+    form[field].classList.remove("error");
+    if (!field) {
+      form[field].classList.add("error");
+      return;
+    }
+    res[field] = fieldValue;
+  }
+  let isValid = true;
+  for (const field of fields) {
+    if (!res[field]) {
+      isValid = false;
+    }
+  }
+  if (!isValid) {
+    return;
+  }
+  return res;
+}
 
 // Render
 function rerenderMenu(activeHabit) {
@@ -66,7 +95,7 @@ function rerenderMenu(activeHabit) {
 function renderHead(activeHabit) {
   page.header.title.innerText = activeHabit.name;
   const progress =
-    activeHabit.days.lenght / activeHabit.target > 1
+    activeHabit.days.length / activeHabit.target > 1
       ? 100
       : (activeHabit.days.length / activeHabit.target) * 100;
 
@@ -100,26 +129,22 @@ function rerender(activeHabitId) {
 }
 //Work with days
 function addDays(event) {
-  const form = event.target;
   event.preventDefault();
-  const data = new FormData(form);
-  const comment = data.get("comment");
-  form["comment"].classList.remove("error");
-  if (!comment) {
-    form["comment"].classList.add("error");
+  const data = validateForm(event.target, ["comment"]);
+  if (!data) {
     return;
   }
   habits = habits.map((h) => {
     if (h.id === globalActiveHabitId) {
       return {
         ...h,
-        days: h.days.concat([{ comment }]),
+        days: h.days.concat([{ comment: data.comment }]),
       };
     }
     return h;
   });
 
-  form["comment"].value = "";
+  resetForm(event.target, ["comment"]);
   rerender(globalActiveHabitId);
   saveData();
 }
@@ -137,7 +162,35 @@ function deleteDay(index) {
   rerender(globalActiveHabitId);
   saveData();
 }
-
+//Working with habits
+function setIcon(context, icon) {
+  page.popup.form["icon"].value = icon;
+  const activeIcon = document.querySelector(".icon.icon--active");
+  activeIcon.classList.remove("icon--active");
+  context.classList.add("icon--active");
+}
+function addHabit(event) {
+  event.preventDefault();
+  const data = validateForm(event.target, ["name", "icon", "target"]);
+  if (!data) {
+    return;
+  }
+  const maxId = habits.reduce(
+    (acc, habit) => (acc > habit.id ? acc : habit.id),
+    0
+  );
+  habits.push({
+    id: maxId + 1,
+    name: data.name,
+    target: data.target,
+    icon: data.icon,
+    days: [],
+  });
+  resetForm(event.target, ["name", "target"]);
+  togglePopup();
+  rerender(maxId + 1);
+  saveData();
+}
 //Init
 (() => {
   loadData();
