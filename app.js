@@ -17,6 +17,7 @@ const page = {
     comment: document.querySelector(".habit__comment"),
   },
   popup: {
+    index: document.getElementById("add-popup"),
     form: document.querySelector(".popup__form"),
   },
 };
@@ -30,6 +31,13 @@ function loadData() {
 }
 function saveData() {
   localStorage.setItem(HABIT_KEY, JSON.stringify(habits));
+}
+function togglePopup() {
+  if (page.popup.index.classList.contains("cover--hidden")) {
+    page.popup.index.classList.remove("cover--hidden");
+  } else {
+    page.popup.index.classList.add("cover--hidden");
+  }
 }
 
 // Render

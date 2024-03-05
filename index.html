@@ -16,7 +16,7 @@
 			<nav class="menu">
 				<div class="menu__list">
 				</div>
-				<button class="menu__add">
+				<button class="menu__add" onclick="togglePopup()">
 					<img src="img/add.svg" alt="add">
 				</button>
 			</nav>
@@ -53,7 +53,7 @@
 			</main>
 		</div>
 	</div>
-	<div class="cover cover--hidden">
+	<div class="cover cover--hidden" id="add-popup">
 		<div class="popup">
 			<h2 class="subtitle">New habit</h2>
 			<div class="icon-label">Icons</div>
@@ -70,10 +70,10 @@
 			</div>
 			<form class="popup__form">
 				<input type="text" name="name" placeholder="Name">
-				<input type="number" name="target" placeholder="Target">
+				<input type="number" name="target" placeholder="Target (number)">
 				<button class="button" type="submit">Submit</button>
 			</form>
-			<button class="popup__close">
+			<button class="popup__close" onclick="togglePopup()">
 				<img src="./img/cross.svg" alt="cross">
 			</button>
 		</div>

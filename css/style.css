@@ -207,9 +207,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease 0s;
 }
 .cover--hidden {
-  /* display: none; */
+  visibility: hidden;
 }
 .popup {
   border-radius: 10px;
@@ -244,12 +245,14 @@ body {
   color: #8899a8;
 }
 .icon {
+  border: 1px solid #5051f9;
 }
 .icon--active {
 }
 .popup__form {
   display: flex;
   flex-direction: column;
+
   gap: 15px;
 }
 .popup__close {
@@ -259,6 +262,10 @@ body {
   top: 15px;
   right: 15px;
   cursor: pointer;
+}
+.button {
+  margin: 0;
+  align-self: center;
 }
 
 @media (max-width: 650px) {
