@@ -41,7 +41,7 @@
 						Day _
 					</div>
 					<form class="habit__form" onsubmit="addDays(event)">
-						<input type="text" placeholder="Comment" class="input">
+						<input type="text" name="comment" placeholder="Comment" class="input">
 						<img src="img/comment.svg" alt="comment" class="comment-img">
 
 						<button class="add-comment" type="submit">
@@ -51,6 +51,31 @@
 
 				</div>
 			</main>
+		</div>
+	</div>
+	<div class="cover cover--hidden">
+		<div class="popup">
+			<h2 class="subtitle">New habit</h2>
+			<div class="icon-label">Icons</div>
+			<div class="icon-select">
+				<button class="icon icon--active">
+					<img src="./img/sport.svg" alt="sport">
+				</button>
+				<button class="icon ">
+					<img src="./img/water.svg" alt="water">
+				</button>
+				<button class="icon ">
+					<img src="./img/food.svg" alt="food">
+				</button>
+			</div>
+			<form class="popup__form">
+				<input type="text" name="name" placeholder="Name">
+				<input type="number" name="target" placeholder="Target">
+				<button class="button" type="submit">Submit</button>
+			</form>
+			<button class="popup__close">
+				<img src="./img/cross.svg" alt="cross">
+			</button>
 		</div>
 	</div>
 </body>

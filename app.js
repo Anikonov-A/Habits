@@ -2,6 +2,7 @@
 
 let habits = [];
 const HABIT_KEY = "HABIT_KEY";
+let globalActiveHabitId;
 //Page
 const page = {
   menu: document.querySelector(".menu__list"),
@@ -14,6 +15,9 @@ const page = {
     daysWrapper: document.querySelector(".main__wrapper"),
     day: document.querySelector(".habit__day"),
     comment: document.querySelector(".habit__comment"),
+  },
+  popup: {
+    form: document.querySelector(".popup__form"),
   },
 };
 // Utilits
@@ -68,8 +72,8 @@ function rerenderContent(activeHabit) {
     element.classList.add("habit");
     element.innerHTML = `<div class="habit__day">Day ${Number(i) + 1}</div>
 						<div class="habit__comment">${activeHabit.days[i].comment}</div>
-						<button class="habit__delete">
-							<img src="img/delete.svg" alt="delete day ${i + 1}">
+						<button class="habit__delete" onclick='deleteDay(${i})'>
+							<img src="img/delete.svg" alt="delete day ${Number(i) + 1}">
 						</button>`;
     page.content.daysWrapper.appendChild(element);
   }
@@ -77,6 +81,7 @@ function rerenderContent(activeHabit) {
 }
 
 function rerender(activeHabitId) {
+  globalActiveHabitId = activeHabitId;
   const activeHabit = habits.find((h) => h.id === activeHabitId);
   if (!activeHabit) {
     return;
@@ -85,10 +90,44 @@ function rerender(activeHabitId) {
   renderHead(activeHabit);
   rerenderContent(activeHabit);
 }
-//Work with days 
+//Work with days
 function addDays(event) {
+  const form = event.target;
   event.preventDefault();
-  
+  const data = new FormData(form);
+  const comment = data.get("comment");
+  form["comment"].classList.remove("error");
+  if (!comment) {
+    form["comment"].classList.add("error");
+    return;
+  }
+  habits = habits.map((h) => {
+    if (h.id === globalActiveHabitId) {
+      return {
+        ...h,
+        days: h.days.concat([{ comment }]),
+      };
+    }
+    return h;
+  });
+
+  form["comment"].value = "";
+  rerender(globalActiveHabitId);
+  saveData();
+}
+function deleteDay(index) {
+  habits = habits.map((h) => {
+    if (h.id === globalActiveHabitId) {
+      h.days.splice(index, 1);
+      return {
+        ...h,
+        days: h.days,
+      };
+    }
+    return h;
+  });
+  rerender(globalActiveHabitId);
+  saveData();
 }
 
 //Init
